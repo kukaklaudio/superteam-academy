@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getLocale } from 'next-intl/server';
 import { Providers } from '@/components/providers';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import './globals.css';
+import ptBR from '../../messages/pt-BR.json';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,18 +26,15 @@ export const metadata: Metadata = {
   keywords: ['solana', 'blockchain', 'web3', 'learning', 'coding', 'superteam'],
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const locale = await getLocale();
-  const messages = await getMessages();
-
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale="pt-BR" messages={ptBR}>
           <Providers>
             <div className="relative flex min-h-screen flex-col">
               <Header />
