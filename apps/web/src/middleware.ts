@@ -9,6 +9,7 @@ export default auth((req) => {
   if (
     pathname === '/' ||
     pathname.startsWith('/courses') ||
+    pathname.startsWith('/certificates') ||
     pathname.startsWith('/leaderboard') ||
     pathname.startsWith('/auth') ||
     pathname.startsWith('/api/auth') ||

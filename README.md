@@ -1,120 +1,247 @@
-# 🎓 Superteam Academy
+<p align="center">
+  <img src="docs/assets/logo.png" alt="Superteam Academy" width="120" />
+</p>
 
-> The learning platform by Superteam Brazil for the Solana ecosystem. Interactive courses, code challenges, and on-chain credentials.
+<h1 align="center">Superteam Academy</h1>
+
+<p align="center">
+  <strong>The Learning Platform for Solana Developers</strong><br/>
+  Interactive courses · Code challenges · On-chain credentials · Gamified learning
+</p>
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#tech-stack">Tech Stack</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#project-structure">Structure</a> •
+  <a href="#deployment">Deploy</a> •
+  <a href="#contributing">Contributing</a>
+</p>
+
+---
+
+## Screenshots
+
+| Home | Course Catalog | Lesson (Code Challenge) |
+|------|---------------|------------------------|
+| ![Home](docs/assets/screenshot-home.png) | ![Courses](docs/assets/screenshot-courses.png) | ![Lesson](docs/assets/screenshot-lesson.png) |
+
+| Dashboard | Leaderboard | Profile |
+|-----------|-------------|---------|
+| ![Dashboard](docs/assets/screenshot-dashboard.png) | ![Leaderboard](docs/assets/screenshot-leaderboard.png) | ![Profile](docs/assets/screenshot-profile.png) |
+
+---
+
+## Features
+
+### 🎓 10 Core Pages
+| Page | Description |
+|------|-------------|
+| **Landing** | Animated hero, stats, learning paths, testimonials |
+| **Course Catalog** | Filter by difficulty, search, categories |
+| **Course Detail** | Syllabus, module tree, enrollment, progress |
+| **Lesson Viewer** | Video, rich content, code challenges (Monaco), quizzes |
+| **Student Dashboard** | XP level, streak calendar, activity feed, enrolled courses |
+| **Leaderboard** | Global & weekly rankings, XP & streak filters |
+| **Profile** | Public profile, badge grid, skill radar chart, credentials |
+| **Certificates** | On-chain verifiable credentials (cNFT), share & verify |
+| **Settings** | Profile editing, wallet connections, preferences, privacy |
+| **Auth** | Sign in with Google, GitHub, or Solana wallet |
+
+### 🏆 Gamification
+- XP system with leveling curve
+- 7-day streak tracking with bonuses
+- Achievement badges (Explorer, Streak Master, etc.)
+- Global leaderboard with real-time rankings
+
+### ⛓️ On-Chain Integration (Solana Devnet)
+- Soulbound XP tokens (Token-2022 read)
+- Compressed NFT credentials (cNFTs via Bubblegum)
+- On-chain verification for certificates
+- Wallet-based authentication (Phantom, Backpack, Solflare)
+
+### 🎭 Role-Based Access Control (RBAC)
+| Role | Access |
+|------|--------|
+| **Admin** | Full platform management (`/admin/*`) |
+| **Professor** | Course creation & student analytics (`/teach/*`) |
+| **Student** | Learning, progress, credentials |
+
+### 🌍 Internationalization
+- 3 languages: English, Português (BR), Español
+- Content & UI fully translated via `next-intl`
+
+### 📊 Analytics
+- GA4, PostHog (heatmaps), Sentry (error tracking)
+- Custom event tracking for lessons, enrollments, challenges
+
+---
 
 ## Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
-- **Language:** TypeScript (strict mode)
-- **UI:** Tailwind CSS + shadcn/ui + Radix UI
-- **CMS:** Sanity
-- **Auth:** NextAuth.js v5 (Solana Wallet + Google + GitHub)
-- **Database:** Supabase (PostgreSQL + RLS)
-- **i18n:** next-intl (PT-BR, EN, ES)
-- **Package Manager:** pnpm (monorepo)
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 14 (App Router, RSC) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind CSS 3.4 + CSS variables |
+| Components | shadcn/ui + Radix UI |
+| Auth | NextAuth.js + Solana Wallet Adapter |
+| Database | Supabase (Postgres + RLS + Realtime) |
+| CMS | Sanity v3 (structured content) |
+| Code Editor | Monaco Editor (dynamic import, SSR-safe) |
+| Blockchain | Solana (devnet) — @solana/web3.js, @metaplex |
+| i18n | next-intl (type-safe) |
+| Analytics | Google Analytics 4, PostHog, Sentry |
+| Email | Resend |
+| Package Manager | pnpm (workspace) |
+| Deploy | Vercel |
 
-## Project Structure
-
-```
-superteam-academy/
-├── apps/
-│   ├── web/          # Next.js application
-│   │   ├── src/
-│   │   │   ├── app/          # App Router pages
-│   │   │   │   ├── (public)/   # Public routes (courses, leaderboard)
-│   │   │   │   ├── (auth)/     # Authenticated routes (dashboard, signin)
-│   │   │   │   ├── (admin)/    # Admin-only routes
-│   │   │   │   └── (teach)/    # Professor routes
-│   │   │   ├── components/   # React components
-│   │   │   ├── lib/          # Utilities, auth config
-│   │   │   ├── services/     # Service interfaces
-│   │   │   ├── types/        # TypeScript types
-│   │   │   └── i18n/         # Internationalization config
-│   │   ├── messages/         # i18n JSON files (pt-BR, en, es)
-│   │   └── supabase/         # Database migrations
-│   └── cms/          # Sanity CMS studio
-│       └── schemas/  # Content schemas
-└── packages/         # Shared packages
-```
+---
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+
-- pnpm 8+
+- **Node.js** ≥ 18
+- **pnpm** ≥ 8
+- Supabase project (free tier works)
+- Sanity project (free tier works)
+- OAuth credentials (Google, GitHub) — optional for dev
 
 ### Installation
 
 ```bash
-# Clone the repo
-git clone https://github.com/kukaklaudio/superteam-academy.git
+# Clone
+git clone https://github.com/solanabr/superteam-academy.git
 cd superteam-academy
 
 # Install dependencies
 pnpm install
 
-# Copy env file
+# Configure environment
 cp apps/web/.env.example apps/web/.env.local
-# Fill in your environment variables
-```
+# Edit .env.local with your credentials
 
-### Development
-
-```bash
-# Start the web app
+# Run development server
 pnpm dev
 
 # Build for production
 pnpm build
 ```
 
-### Environment Variables
-
-See `apps/web/.env.example` for all required variables:
-- `AUTH_SECRET` — NextAuth.js secret
-- `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` — Google OAuth
-- `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` — GitHub OAuth
-- `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` — Supabase
-- `NEXT_PUBLIC_SOLANA_RPC_URL` — Solana RPC endpoint
-
-## Supabase Setup
-
-1. Install [Supabase CLI](https://supabase.com/docs/guides/cli)
-2. Run `supabase init` in `apps/web/`
-3. Run `supabase start` for local development
-4. Apply migrations: `supabase db reset`
-
-The schema includes:
-- Users with role-based access (admin/professor/student)
-- Courses, modules, lessons (content/challenge/quiz/video)
-- Enrollments, progress tracking, streaks
-- Achievements, comments, notifications
-- Full Row Level Security (RLS) policies
-
-## Role-Based Access Control
-
-| Role | Access |
-|------|--------|
-| **Admin** | Full platform access, user management, course approval |
-| **Professor** | Create/manage own courses, view student analytics |
-| **Student** | Browse courses, enroll, complete lessons, earn XP |
-
-## Features
-
-- 🌙 Dark mode primary, light mode secondary
-- 🌐 Multilingual (PT-BR, EN, ES)
-- 🔐 Solana wallet authentication (Phantom, Backpack, Solflare)
-- 🎮 Gamification (XP, streaks, achievements, leaderboard)
-- 📜 On-chain credentials (cNFT on Solana Devnet)
-- 📝 Code challenges with Monaco Editor
-- 💬 Lesson discussions
-- 📊 Analytics dashboards (admin + professor)
-
-## License
-
-See [LICENSE](./LICENSE).
+The app runs at **http://localhost:3000**.
 
 ---
 
-Built with 💜 by [Superteam Brazil](https://twitter.com/SuperteamBR)
+## Environment Variables
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `NEXT_PUBLIC_SUPABASE_URL` | ✅ | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✅ | Supabase anonymous key |
+| `SUPABASE_SERVICE_KEY` | ✅ | Supabase service role key (server only) |
+| `NEXTAUTH_URL` | ✅ | App URL (http://localhost:3000 for dev) |
+| `NEXTAUTH_SECRET` | ✅ | Random secret (`openssl rand -base64 32`) |
+| `GOOGLE_CLIENT_ID` | ⬜ | Google OAuth client ID |
+| `GOOGLE_CLIENT_SECRET` | ⬜ | Google OAuth client secret |
+| `GITHUB_CLIENT_ID` | ⬜ | GitHub OAuth client ID |
+| `GITHUB_CLIENT_SECRET` | ⬜ | GitHub OAuth client secret |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | ✅ | Sanity project ID |
+| `NEXT_PUBLIC_SANITY_DATASET` | ✅ | Sanity dataset (`production`) |
+| `SANITY_API_TOKEN` | ⬜ | Sanity write token |
+| `NEXT_PUBLIC_SOLANA_RPC` | ✅ | Solana RPC endpoint |
+| `NEXT_PUBLIC_SOLANA_NETWORK` | ✅ | `devnet` or `mainnet-beta` |
+| `NEXT_PUBLIC_GA_ID` | ⬜ | Google Analytics 4 measurement ID |
+| `NEXT_PUBLIC_POSTHOG_KEY` | ⬜ | PostHog API key |
+| `NEXT_PUBLIC_SENTRY_DSN` | ⬜ | Sentry DSN |
+| `RESEND_API_KEY` | ⬜ | Resend API key for emails |
+| `NEXT_PUBLIC_APP_URL` | ⬜ | Public app URL (for sitemap, OG) |
+
+---
+
+## Project Structure
+
+```
+superteam-academy/
+├── apps/
+│   ├── web/                          # Next.js 14 application
+│   │   ├── public/                   # Static assets, robots.txt
+│   │   └── src/
+│   │       ├── app/                  # App Router pages
+│   │       │   ├── (admin)/          # Admin routes (RBAC: admin)
+│   │       │   ├── (auth)/           # Authenticated routes
+│   │       │   ├── (public)/         # Public routes
+│   │       │   ├── (teach)/          # Teacher routes (RBAC: professor)
+│   │       │   ├── api/              # API routes (NextAuth)
+│   │       │   ├── error.tsx         # Global error boundary
+│   │       │   ├── not-found.tsx     # Custom 404
+│   │       │   ├── sitemap.ts        # Dynamic sitemap
+│   │       │   └── layout.tsx        # Root layout
+│   │       ├── components/
+│   │       │   ├── admin/            # Admin-specific components
+│   │       │   ├── certificates/     # Certificate & credential UI
+│   │       │   ├── dashboard/        # XP display, streak, activity
+│   │       │   ├── layout/           # Header, footer, sidebar, search
+│   │       │   ├── leaderboard/      # Ranking table
+│   │       │   ├── lessons/          # Code editor, quiz, video, content
+│   │       │   ├── profile/          # Badges, radar chart, credentials
+│   │       │   ├── providers/        # Theme, session, analytics
+│   │       │   ├── settings/         # Forms for settings page
+│   │       │   ├── teach/            # Course & lesson editors
+│   │       │   └── ui/              # shadcn/ui primitives
+│   │       ├── hooks/                # Custom React hooks
+│   │       ├── i18n/                 # Internationalization config
+│   │       ├── lib/                  # Utilities, analytics, auth
+│   │       ├── services/             # Service interfaces (clean arch)
+│   │       └── types/                # TypeScript type definitions
+│   └── cms/                          # Sanity Studio
+│       └── schemas/                  # Content schemas
+├── packages/                         # Shared packages (future)
+├── ARCHITECTURE.md
+├── CMS_GUIDE.md
+├── CUSTOMIZATION.md
+└── README.md
+```
+
+---
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push to GitHub
+2. Import project in [Vercel](https://vercel.com)
+3. Set **Root Directory** to `apps/web`
+4. Add all environment variables
+5. Deploy — Vercel auto-detects Next.js
+
+### Build Commands
+
+```bash
+pnpm build          # Build all apps
+pnpm dev            # Dev server with hot reload
+pnpm lint           # ESLint
+pnpm type-check     # TypeScript compiler check
+```
+
+---
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feat/my-feature`
+3. Make your changes with tests
+4. Ensure `pnpm build` passes with zero errors
+5. Submit a pull request
+
+### Conventions
+- **Commits:** Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`)
+- **Code style:** Prettier + ESLint (auto-configured)
+- **Types:** Strict TypeScript, no `any`
+- **Components:** shadcn/ui patterns, composable, accessible
+
+---
+
+## License
+
+MIT © [Superteam Brazil](https://github.com/solanabr)

@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react';
 import { ThemeProvider } from './theme-provider';
 import { SessionProvider } from './session-provider';
+import { AnalyticsProvider } from './analytics-provider';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 
 interface Props {
@@ -21,7 +22,7 @@ export function Providers({ children }: Props) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AnalyticsProvider>{children}</AnalyticsProvider>
         </ThemeProvider>
       </NextIntlClientProvider>
     </SessionProvider>

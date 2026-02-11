@@ -1,4 +1,8 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
+import { userProfiles } from '@/lib/mock-data';
+import { UserTable } from '@/components/admin/user-table';
 
 export default function AdminUsersPage() {
   const t = useTranslations('admin');
@@ -6,7 +10,9 @@ export default function AdminUsersPage() {
   return (
     <div className="container py-8">
       <h1 className="text-3xl font-bold">{t('users')}</h1>
-      <p className="mt-2 text-muted-foreground">Manage platform users and roles.</p>
+      <div className="mt-6">
+        <UserTable users={userProfiles} />
+      </div>
     </div>
   );
 }

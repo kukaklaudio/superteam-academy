@@ -7,6 +7,8 @@ import { useTheme } from 'next-themes';
 import { Moon, Sun, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LanguageSwitcher } from './language-switcher';
+import { NotificationBell } from './notification-bell';
+import { GlobalSearch } from './global-search';
 import type { UserRole } from '@/types';
 
 export function Header() {
@@ -51,8 +53,9 @@ export function Header() {
           )}
         </nav>
 
-        {/* Right side: Language, Theme, Auth */}
+        {/* Right side: Search, Notifications, Language, Theme, Auth */}
         <div className="flex items-center space-x-3">
+          <GlobalSearch />
           <LanguageSwitcher />
 
           <Button
@@ -64,6 +67,8 @@ export function Header() {
             <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           </Button>
+
+          {session && <NotificationBell />}
 
           {session ? (
             <Link href="/profile">
