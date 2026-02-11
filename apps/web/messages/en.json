@@ -1,0 +1,158 @@
+{
+  "common": {
+    "appName": "Superteam Academy",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "close": "Close"
+  },
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "dashboard": "Dashboard",
+    "leaderboard": "Leaderboard",
+    "profile": "Profile",
+    "settings": "Settings",
+    "admin": "Admin",
+    "teach": "Teach",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "connectWallet": "Connect Wallet"
+  },
+  "home": {
+    "hero": {
+      "title": "Learn Solana by Doing",
+      "subtitle": "The learning platform by Superteam Brazil. Interactive courses, code challenges, and on-chain credentials.",
+      "cta": "Explore Courses",
+      "ctaSecondary": "Get Started"
+    },
+    "features": {
+      "title": "Why Superteam Academy?",
+      "interactive": "Interactive Learning",
+      "interactiveDesc": "Code challenges with an integrated editor and real-time feedback.",
+      "gamified": "Gamification",
+      "gamifiedDesc": "Earn XP, maintain streaks, and climb the leaderboard.",
+      "credentials": "On-Chain Credentials",
+      "credentialsDesc": "Certificates as verifiable cNFTs on Solana.",
+      "community": "Community",
+      "communityDesc": "Learn alongside the Superteam Brazil community."
+    }
+  },
+  "courses": {
+    "title": "Courses",
+    "subtitle": "Explore our catalog of Solana and Web3 courses",
+    "filters": {
+      "all": "All",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "card": {
+      "lessons": "lessons",
+      "duration": "min",
+      "xp": "XP",
+      "enrolled": "Enrolled",
+      "enroll": "Enroll",
+      "continue": "Continue",
+      "completed": "Completed"
+    },
+    "empty": "No courses found."
+  },
+  "dashboard": {
+    "title": "My Dashboard",
+    "welcome": "Welcome back",
+    "currentCourses": "Current Courses",
+    "xp": "Total XP",
+    "level": "Level",
+    "streak": "Streak",
+    "days": "days",
+    "achievements": "Achievements",
+    "recentActivity": "Recent Activity",
+    "recommendations": "Recommendations"
+  },
+  "lesson": {
+    "complete": "Mark as Complete",
+    "completed": "Lesson Complete",
+    "nextLesson": "Next Lesson",
+    "previousLesson": "Previous Lesson",
+    "discussion": "Discussion",
+    "addComment": "Add Comment"
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "allTime": "All Time",
+    "rank": "Rank",
+    "player": "Player",
+    "xp": "XP"
+  },
+  "profile": {
+    "title": "Profile",
+    "bio": "Bio",
+    "skills": "Skills",
+    "badges": "Badges",
+    "completedCourses": "Completed Courses",
+    "credentials": "Credentials"
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "accounts": "Linked Accounts",
+    "preferences": "Preferences",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "privacy": "Privacy"
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "users": "Users",
+    "courses": "Courses",
+    "analytics": "Analytics",
+    "totalUsers": "Total Users",
+    "totalCourses": "Total Courses",
+    "totalEnrollments": "Total Enrollments",
+    "totalXP": "XP Distributed"
+  },
+  "teach": {
+    "title": "Teacher Panel",
+    "myCourses": "My Courses",
+    "createCourse": "Create Course",
+    "students": "Students",
+    "analytics": "Analytics",
+    "activeStudents": "Active Students",
+    "completionRate": "Completion Rate"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signInWith": "Sign in with {provider}",
+    "orContinueWith": "Or continue with",
+    "connectWallet": "Connect Wallet",
+    "disconnectWallet": "Disconnect"
+  },
+  "footer": {
+    "description": "The learning platform by Superteam Brazil for the Solana ecosystem.",
+    "resources": "Resources",
+    "community": "Community",
+    "legal": "Legal",
+    "docs": "Documentation",
+    "blog": "Blog",
+    "twitter": "Twitter",
+    "discord": "Discord",
+    "github": "GitHub",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved."
+  }
+}

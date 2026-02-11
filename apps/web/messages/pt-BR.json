@@ -1,0 +1,158 @@
+{
+  "common": {
+    "appName": "Superteam Academy",
+    "loading": "Carregando...",
+    "error": "Algo deu errado",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "create": "Criar",
+    "search": "Buscar",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "close": "Fechar"
+  },
+  "nav": {
+    "home": "Início",
+    "courses": "Cursos",
+    "dashboard": "Painel",
+    "leaderboard": "Ranking",
+    "profile": "Perfil",
+    "settings": "Configurações",
+    "admin": "Admin",
+    "teach": "Ensinar",
+    "signIn": "Entrar",
+    "signOut": "Sair",
+    "connectWallet": "Conectar Carteira"
+  },
+  "home": {
+    "hero": {
+      "title": "Aprenda Solana na Prática",
+      "subtitle": "A plataforma de aprendizado da Superteam Brasil. Cursos interativos, desafios de código e credenciais on-chain.",
+      "cta": "Explorar Cursos",
+      "ctaSecondary": "Começar Agora"
+    },
+    "features": {
+      "title": "Por que a Superteam Academy?",
+      "interactive": "Aprendizado Interativo",
+      "interactiveDesc": "Code challenges com editor integrado e feedback em tempo real.",
+      "gamified": "Gamificação",
+      "gamifiedDesc": "Ganhe XP, mantenha streaks e suba no ranking.",
+      "credentials": "Credenciais On-Chain",
+      "credentialsDesc": "Certificados como cNFTs verificáveis na Solana.",
+      "community": "Comunidade",
+      "communityDesc": "Aprenda junto com a comunidade Superteam Brasil."
+    }
+  },
+  "courses": {
+    "title": "Cursos",
+    "subtitle": "Explore nosso catálogo de cursos sobre Solana e Web3",
+    "filters": {
+      "all": "Todos",
+      "beginner": "Iniciante",
+      "intermediate": "Intermediário",
+      "advanced": "Avançado"
+    },
+    "card": {
+      "lessons": "aulas",
+      "duration": "min",
+      "xp": "XP",
+      "enrolled": "Matriculado",
+      "enroll": "Matricular-se",
+      "continue": "Continuar",
+      "completed": "Completo"
+    },
+    "empty": "Nenhum curso encontrado."
+  },
+  "dashboard": {
+    "title": "Meu Painel",
+    "welcome": "Bem-vindo de volta",
+    "currentCourses": "Cursos em Andamento",
+    "xp": "XP Total",
+    "level": "Nível",
+    "streak": "Streak",
+    "days": "dias",
+    "achievements": "Conquistas",
+    "recentActivity": "Atividade Recente",
+    "recommendations": "Recomendações"
+  },
+  "lesson": {
+    "complete": "Marcar como Completa",
+    "completed": "Aula Completa",
+    "nextLesson": "Próxima Aula",
+    "previousLesson": "Aula Anterior",
+    "discussion": "Discussão",
+    "addComment": "Adicionar Comentário"
+  },
+  "leaderboard": {
+    "title": "Ranking",
+    "weekly": "Semanal",
+    "monthly": "Mensal",
+    "allTime": "Geral",
+    "rank": "Posição",
+    "player": "Jogador",
+    "xp": "XP"
+  },
+  "profile": {
+    "title": "Perfil",
+    "bio": "Bio",
+    "skills": "Habilidades",
+    "badges": "Badges",
+    "completedCourses": "Cursos Completos",
+    "credentials": "Credenciais"
+  },
+  "settings": {
+    "title": "Configurações",
+    "profile": "Perfil",
+    "accounts": "Contas Vinculadas",
+    "preferences": "Preferências",
+    "language": "Idioma",
+    "theme": "Tema",
+    "notifications": "Notificações",
+    "privacy": "Privacidade"
+  },
+  "admin": {
+    "title": "Painel Admin",
+    "users": "Usuários",
+    "courses": "Cursos",
+    "analytics": "Analytics",
+    "totalUsers": "Total de Usuários",
+    "totalCourses": "Total de Cursos",
+    "totalEnrollments": "Total de Matrículas",
+    "totalXP": "XP Distribuído"
+  },
+  "teach": {
+    "title": "Painel do Professor",
+    "myCourses": "Meus Cursos",
+    "createCourse": "Criar Curso",
+    "students": "Alunos",
+    "analytics": "Analytics",
+    "activeStudents": "Alunos Ativos",
+    "completionRate": "Taxa de Conclusão"
+  },
+  "auth": {
+    "signIn": "Entrar",
+    "signUp": "Criar Conta",
+    "signInWith": "Entrar com {provider}",
+    "orContinueWith": "Ou continue com",
+    "connectWallet": "Conectar Carteira",
+    "disconnectWallet": "Desconectar"
+  },
+  "footer": {
+    "description": "A plataforma de aprendizado da Superteam Brasil para o ecossistema Solana.",
+    "resources": "Recursos",
+    "community": "Comunidade",
+    "legal": "Legal",
+    "docs": "Documentação",
+    "blog": "Blog",
+    "twitter": "Twitter",
+    "discord": "Discord",
+    "github": "GitHub",
+    "terms": "Termos de Uso",
+    "privacy": "Política de Privacidade",
+    "rights": "Todos os direitos reservados."
+  }
+}
