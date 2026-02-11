@@ -4,6 +4,68 @@ import GitHub from 'next-auth/providers/github';
 import Credentials from 'next-auth/providers/credentials';
 import type { UserRole } from '@/types';
 import { verifySignature } from './wallet-auth';
+import type { Provider } from 'next-auth/providers';
+
+// Build providers dynamically — skip OAuth providers without real credentials
+const providers: Provider[] = [];
+
+const googleId = process.env.GOOGLE_CLIENT_ID ?? '';
+const googleSecret = process.env.GOOGLE_CLIENT_SECRET ?? '';
+if (googleId && googleSecret && googleId !== 'placeholder') {
+  providers.push(
+    Google({
+      clientId: googleId,
+      clientSecret: googleSecret,
+      allowDangerousEmailAccountLinking: true,
+    })
+  );
+}
+
+const githubId = process.env.GITHUB_CLIENT_ID ?? '';
+const githubSecret = process.env.GITHUB_CLIENT_SECRET ?? '';
+if (githubId && githubSecret && githubId !== 'placeholder') {
+  providers.push(
+    GitHub({
+      clientId: githubId,
+      clientSecret: githubSecret,
+      allowDangerousEmailAccountLinking: true,
+    })
+  );
+}
+
+providers.push(
+  Credentials({
+    id: 'solana-wallet',
+    name: 'Solana Wallet',
+    credentials: {
+      walletAddress: { label: 'Wallet Address', type: 'text' },
+      signature: { label: 'Signature', type: 'text' },
+      message: { label: 'Message', type: 'text' },
+    },
+    async authorize(credentials) {
+      if (!credentials?.walletAddress || !credentials?.signature || !credentials?.message) {
+        return null;
+      }
+
+      const isValid = verifySignature(
+        credentials.walletAddress as string,
+        credentials.signature as string,
+        credentials.message as string
+      );
+
+      if (!isValid) return null;
+
+      return {
+        id: credentials.walletAddress as string,
+        name: null,
+        email: null,
+        image: null,
+        role: 'student' as UserRole,
+        walletAddress: credentials.walletAddress as string,
+      };
+    },
+  })
+);
 
 export const {
   handlers,
@@ -11,50 +73,7 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
-  providers: [
-    Google({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      allowDangerousEmailAccountLinking: true,
-    }),
-    GitHub({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      allowDangerousEmailAccountLinking: true,
-    }),
-    Credentials({
-      id: 'solana-wallet',
-      name: 'Solana Wallet',
-      credentials: {
-        walletAddress: { label: 'Wallet Address', type: 'text' },
-        signature: { label: 'Signature', type: 'text' },
-        message: { label: 'Message', type: 'text' },
-      },
-      async authorize(credentials) {
-        if (!credentials?.walletAddress || !credentials?.signature || !credentials?.message) {
-          return null;
-        }
-
-        const isValid = verifySignature(
-          credentials.walletAddress as string,
-          credentials.signature as string,
-          credentials.message as string
-        );
-
-        if (!isValid) return null;
-
-        // In production, look up or create user in Supabase
-        return {
-          id: credentials.walletAddress as string,
-          name: null,
-          email: null,
-          image: null,
-          role: 'student' as UserRole,
-          walletAddress: credentials.walletAddress as string,
-        };
-      },
-    }),
-  ],
+  providers,
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
